@@ -1,2 +1,2 @@
-# cryptography-impllementation-on-esp32
-ESP32’s hardware RNG generates true random numbers for cryptographic use. It enables secure keys, nonces, and IVs for encryption, digital signatures, and secure communication, enhancing IoT data security without relying on predictable pseudo-random sources.
+# cryptography-impllementation-on-esp32-using-built-in-random-number-generator
+This Markdown explains an Arduino sketch for ESP32 that demonstrates authenticated encryption using ChaCha20-Poly1305 (AEAD) via the rweather Crypto library. The program generates a random 32-byte key and a 12-byte nonce per message (built from a 4-byte random prefix and an 8-byte counter), treats the counter as AAD (additional authenticated data) to catch reordering/tampering, and then encrypts whatever you type over Serial. It immediately decrypts/validates the result and prints timings. It’s a teaching demo — it even prints the key (do not do that in real systems).
